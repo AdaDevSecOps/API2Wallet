@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pos-api2wallet-cluster-service
+spec:
+  selector:
+    app: api2wallet
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+  type: ClusterIP

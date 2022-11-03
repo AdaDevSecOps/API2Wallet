@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\Team Explorer\SKC\WebServiceCore\API2Wallet\API2Wallet\bin\Release\net5.0\publish\</_PublishTargetUrl>
+    <History>True|2022-11-02T10:54:02.6976071Z;True|2022-11-02T17:53:57.7490088+07:00;True|2022-10-25T15:32:26.9004862+07:00;True|2022-10-25T15:32:23.6855969+07:00;True|2022-10-25T11:15:43.6605562+07:00;True|2022-09-06T15:54:41.6079423+07:00;True|2022-08-24T15:15:55.9298887+07:00;</History>
+  </PropertyGroup>
+</Project>

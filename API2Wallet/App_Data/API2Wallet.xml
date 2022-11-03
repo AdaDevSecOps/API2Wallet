@@ -1,0 +1,3189 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>API2Wallet</name>
+    </assembly>
+    <members>
+        <member name="M:API2Wallet.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:API2Wallet.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForMediaType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Sets the sample directly for all actions with the specified media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,API2Wallet.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the model description generator.
+            </summary>
+            <param name="config">The configuration.</param>
+            <returns>The <see cref="T:API2Wallet.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/></returns>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:API2Wallet.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:API2Wallet.Areas.HelpPage.ModelDescriptions.ModelDescription">
+            <summary>
+            Describes a type model.
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator">
+            <summary>
+            Generates model descriptions for given types.
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Areas.HelpPage.ModelDescriptions.ModelNameAttribute">
+            <summary>
+            Use this attribute to change the name of the <see cref="T:API2Wallet.Areas.HelpPage.ModelDescriptions.ModelDescription"/> generated for a type.
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:API2Wallet.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:API2Wallet.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.Models.HelpPageApiModel.UriParameters">
+            <summary>
+            Gets or sets the <see cref="T:API2Wallet.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> collection that describes the URI parameters for the API.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.Models.HelpPageApiModel.RequestDocumentation">
+            <summary>
+            Gets or sets the documentation for the request.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.Models.HelpPageApiModel.RequestModelDescription">
+            <summary>
+            Gets or sets the <see cref="T:API2Wallet.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the request body.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.Models.HelpPageApiModel.RequestBodyParameters">
+            <summary>
+            Gets the request body parameter descriptions.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.Models.HelpPageApiModel.ResourceDescription">
+            <summary>
+            Gets or sets the <see cref="T:API2Wallet.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the resource.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.Models.HelpPageApiModel.ResourceProperties">
+            <summary>
+            Gets the resource property descriptions.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
+            <summary>
+            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
+            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            </summary>
+            <remarks>
+            Collection includes just <see cref="M:API2Wallet.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
+            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,API2Wallet.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,API2Wallet.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create
+            one using <see cref="M:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator.DefaultSampleObjectFactory(API2Wallet.Areas.HelpPage.HelpPageSampleGenerator,System.Type)"/> (which wraps an <see cref="T:API2Wallet.Areas.HelpPage.ObjectGenerator"/>) and other
+            factories in <see cref="P:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator.ResolveHttpRequestMessageType(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Resolves the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The type.</returns>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},API2Wallet.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="T:API2Wallet.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Creates a new <see cref="T:API2Wallet.Areas.HelpPage.HelpPageSampleKey"/> based on media type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:API2Wallet.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageSampleKey.#ctor(API2Wallet.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:API2Wallet.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:API2Wallet.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:API2Wallet.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,API2Wallet.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:API2Wallet.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:API2Wallet.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:API2Wallet.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:API2Wallet.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:API2Wallet.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:API2Wallet.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:API2Wallet.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:API2Wallet.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="T:API2Wallet.Class.cCacheInMem">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Class.cCacheInMem.C_CAHbCheckKey(System.String)">
+            <summary>
+                Check key in memory cahce.
+            </summary>
+            
+            <param name="ptKey">Key.</param>
+            
+            <returns>
+                true : Found key.<br/>
+                false : Key not found.
+            </returns>
+        </member>
+        <member name="M:API2Wallet.Class.cCacheInMem.C_CAHbAddValue(System.String,System.Object,System.Int32)">
+            <summary>
+                Add value to memory cache.
+            </summary>
+            
+            <param name="ptKey">
+                Key cache.
+            </param>
+            <param name="poValue">
+                Vaule.
+            </param>
+            <param name="pnDuration">
+                Duration expired in minutes.
+            </param>
+            
+            <returns>
+                true : add complete.<br/>
+                fasle : add error.
+            </returns>
+        </member>
+        <member name="M:API2Wallet.Class.cCacheInMem.C_CAHoGetValue``1(System.String)">
+            <summary>
+                Get value from cache.
+            </summary>
+            
+            <typeparam name="T">Type return.</typeparam>
+            <param name="ptKey">Key.</param>
+            
+            <returns>
+                Value of key.
+            </returns>
+        </member>
+        <member name="M:API2Wallet.Class.cCacheInMem.C_CAHbRemoveValue(System.String)">
+            <summary>
+                Remove memory cache value.
+            </summary>
+            
+            <param name="ptKey">
+                Key cache.
+            </param>
+            
+            <returns>
+                true : remove complete.<br/>
+                fasle : remove error.
+            </returns>
+        </member>
+        <member name="T:API2Wallet.Class.cDatabase">
+            <summary>
+            Class Database
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Class.cDatabase.#ctor">
+            <summary>
+                Constructor
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Class.cDatabase.#ctor(System.Int32)">
+            <summary>
+                Constructor
+            </summary>
+            
+            <param name="pnConTme">Connection time out.</param>
+            <param name="pnCmdTme">Execute command time out.</param>
+        </member>
+        <member name="M:API2Wallet.Class.cDatabase.C_DATnExecuteSql(System.String,System.Int32)">
+            <summary>
+                Execute sql command insert, update, delete etc.
+            </summary>
+            
+            <param name="ptSqlCmd">Sql command.</param>
+            <param name="pnConTme">Connect database time out.</param>
+            <param name="pnCmdTme">Execute command time out.</param>
+            
+            <returns>
+                Row effect of command.
+            </returns>
+        </member>
+        <member name="M:API2Wallet.Class.cDatabase.C_DATaSqlQuery``1(System.String,System.Int32)">
+            <summary>
+                Query sql command.
+            </summary>
+            
+            <typeparam name="T">Type return.</typeparam>
+            <param name="ptSqlCmd">Sql command.</param>
+            <param name="pnConTme">Connect database time out.</param>
+            <param name="pnCmdTme">Execute command time out.</param>
+            
+            <returns>
+                Result of sql command in list of class model.
+            </returns>
+        </member>
+        <member name="M:API2Wallet.Class.cDatabase.C_DAToSqlQuery``1(System.String,System.Int32)">
+            <summary>
+                Query sql command.
+            </summary>
+            
+            <typeparam name="T">Type return.</typeparam>
+            <param name="ptSqlCmd">Sql command.</param>
+            <param name="pnConTme">Connect database time out.</param>
+            <param name="pnCmdTme">Execute command time out.</param>
+            
+            <returns>
+                Result of sql command in class model.
+            </returns>
+        </member>
+        <member name="M:API2Wallet.Class.cDatabase.C_DAToSqlQuery(System.String,System.Int32,System.String)">
+            <summary>
+                Query sql command.
+            </summary>
+            
+            <param name="ptSqlCmd">Sql command.</param>
+            <param name="pnConTme">Connect database time out.</param>
+            <param name="pnCmdTme">Execute command time out.</param>
+            <param name="ptTblName">Table name.</param>
+            
+            <returns>
+                Result of sql command in DataTable.
+            </returns>
+        </member>
+        <member name="M:API2Wallet.Class.cDatabase.C_DAToBulkCopyTable(System.Data.DataTable,System.Int32)">
+            <summary>
+                Bulk copy table.
+            </summary>
+            
+            <param name="poDbTblData">Data.</param>
+            <param name="pnConTme">Connect database time out.</param>
+            <param name="pnBcpTme">Bulk copy time out.</param>
+            
+            <returns>
+                true : Bulk copy success.<br/>
+                false : Bulk copy false.
+            </returns>
+        </member>
+        <member name="M:API2Wallet.Class.cDatabase.Dispose">
+            <summary>
+             Interface IDisposable.
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Class.cDatabase.C_GETtDBName">
+            <summary>
+            Get name DB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:API2Wallet.Class.cDatabase.C_GEToQuerySQLTbl(System.String)">
+            <summary>
+            Query sql return Datatable
+            </summary>
+            <param name="ptSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API2Wallet.Class.cDatabase.C_GETnQuerySQL(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ptSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API2Wallet.Class.cDatabase.C_GETtSQLScalarString(System.String)">
+            <summary>
+            SQl Query ExecuteScalar String
+            </summary>
+            <param name="ptSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API2Wallet.Class.cDatabase.C_GETnSQLScalarInt(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ptSql"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API2Wallet.Class.cDatabase.C_GEToQueryStoreDataTbl(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            Query stored procedure 
+            </summary>
+            <param name="ptStoreName"></param>
+            <param name="paPara"></param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:API2Wallet.Class.cDatabase.C_GETnExecuteSqlStored(System.String,System.Data.SqlClient.SqlParameter[])">
+            <summary>
+            
+            </summary>
+            <param name="ptStoreName"></param>
+            <param name="paPara"></param>
+            <param name="pnResult"></param>
+            <returns></returns>
+        </member>
+        <member name="T:API2Wallet.Class.Log.cChangeCard">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Class.Log.cChangeCard.C_DATbProcChangeCard(System.Collections.Generic.List{API2Wallet.Models.WebService.Request.ChangeCard.cmlReqChangeCard},System.String@,System.String@,API2Wallet.Models.WebService.Response.ChangeCard.cmlResChangeCard@)">
+            <summary>
+            
+            </summary>
+            <param name="poPara"></param>
+            <param name="ptErrCode"></param>
+            <param name="ptErrDesc"></param>
+            <param name="poResult"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API2Wallet.Class.Log.cChangeCard.C_DATbProcChangeSta(System.Collections.Generic.List{API2Wallet.Models.WebService.Request.Card.cmlReqChangeSta},System.String@,System.String@,API2Wallet.Models.WebService.Response.Card.cmlResChangeSta@)">
+            <summary>
+            
+            </summary>
+            <param name="poPara"></param>
+            <param name="ptErrCode"></param>
+            <param name="ptErrDesc"></param>
+            <param name="poResult"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API2Wallet.Class.Log.cChangeCard.C_DATbProcCrdClrLst(System.Collections.Generic.List{API2Wallet.Models.WebService.Request.Card.cmlReqCardClearList},System.String@,System.String@,API2Wallet.Models.WebService.Response.Card.cmlResCardClearList@)">
+            <summary>
+            
+            </summary>
+            <param name="poPara"></param>
+            <param name="ptErrCode"></param>
+            <param name="ptErrDesc"></param>
+            <param name="poResult"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API2Wallet.Class.Log.cChangeCard.C_DATbProcCardNewList(System.Collections.Generic.List{API2Wallet.Models.WebService.Request.Card.cmlReqCardNewList},System.String@,System.String@,API2Wallet.Models.WebService.Response.Card.cmlResCardNewList@)">
+            <summary>
+            
+            </summary>
+            <param name="poPara"></param>
+            <param name="ptErrCode"></param>
+            <param name="ptErrDesc"></param>
+            <param name="poResult"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API2Wallet.Class.Log.cLog.C_CALxWriteLog(System.String,System.String,System.String,System.String,System.Boolean@)">
+             <summary>
+             Write log to file.
+             </summary>
+             <param name="ptTaskName">
+             Task name ex. 100, 101 (Company code).
+             </param>
+             <param name="ptPrcType">
+             Process type ex. A = Auto, M = Manual.
+            </param>
+             <param name="ptFucn">
+             Function name.
+             </param>
+             <param name="ptMsg">
+             Message log.
+            </param>
+             <param name="pbStaEndLine">
+             Status write end line.
+             </param>
+             <remarks></remarks>
+        </member>
+        <member name="M:API2Wallet.Class.Log.cLog.C_CALxDeleteLog(System.String,System.String)">
+             <summary>
+             Delete file log.
+             </summary>
+            <param name="ptTaskName">
+             Task Name.
+             </param>
+             <param name="ptPrcType">
+             Process type.
+             </param>
+             <remarks></remarks>
+        </member>
+        <member name="M:API2Wallet.Class.Log.cLog.C_CALxDeleteLog">
+            <summary>
+             Delete file log.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:API2Wallet.Class.Online.cIsOnline">
+            <summary>
+            Information class Online
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Class.Online.cIsOnline.C_DATbVerifyIsOnline(System.String@,System.String@,API2Wallet.Models.cmlResIsOnline@)">
+            <summary>
+            ตรวจสอบสถานะ Online
+            </summary>
+            <param name="ptErrCode"></param>
+            <param name="ptErrDesc"></param>
+            <param name="poIsOnlineErr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:API2Wallet.Class.Pay.cPay">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Class.Pay.cPay.C_DATbProcPaytxn(API2Wallet.Models.WebService.Request.Pay.cmlReqPayTxn,System.String@,System.String@,API2Wallet.Models.WebService.Response.Pay.cmlResPayTxn@)">
+            <summary>
+            
+            </summary>
+            <param name="poPara"></param>
+            <param name="ptErrCode"></param>
+            <param name="ptErrDesc"></param>
+            <param name="poResult"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API2Wallet.Class.Pay.cPay.C_DATbProcCancelPaytxn(API2Wallet.Models.WebService.Request.Pay.cmlReqCancelpayTxn,System.String@,System.String@,API2Wallet.Models.WebService.Response.Pay.cmlRescancelPayTxn@)">
+            <summary>
+            
+            </summary>
+            <param name="poPara"></param>
+            <param name="ptErrCode"></param>
+            <param name="ptErrDesc"></param>
+            <param name="poResult"></param>
+            <returns></returns>
+        </member>
+        <member name="T:API2Wallet.Class.ResetExpired.cResetExpired">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Class.ResetExpired.cResetExpired.C_SETbResetExpired(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ptCrdCode"></param>
+            <param name="ptBchCode"></param>
+            <param name="ptPosCode"></param>
+            <param name="ptDocNoRef"></param>
+            <param name="ptCrdSta"></param>
+            <returns></returns>
+        </member>
+        <member name="T:API2Wallet.Class.SpotCheck.cSpotCheck">
+            <summary>
+            Information Spot Check.
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Class.SpotCheck.cSpotCheck.C_DATbProcSpotCheck(API2Wallet.Models.WebService.Request.SpotCheck.cmlReqSpotChk,System.String@,System.String@,API2Wallet.Models.WebService.Response.SpotCheck.cmlResSpotChk@)">
+            <summary>
+            
+            </summary>
+            <param name="poPara"></param>
+            <param name="ptErrCode"></param>
+            <param name="ptErrDesc"></param>
+            <param name="poResult"></param>
+            <returns></returns>
+        </member>
+        <member name="T:API2Wallet.Class.Standard.cSP">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:API2Wallet.Class.Standard.cSP.SP_nCmdTimeOut">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Class.Standard.cSP.SP_GEToDataQuery(System.String,System.Exception@)">
+            <summary>
+            
+            </summary>
+            <param name="ptSql"></param>
+            <param name="poException"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API2Wallet.Class.Standard.cSP.SP_GETtConn">
+            <summary>
+            Get Connection
+            </summary>
+            <returns>*CH 14-12-2016</returns>
+        </member>
+        <member name="M:API2Wallet.Class.Standard.cSP.SP_CHKbParaModel(System.String@,System.Web.Http.ModelBinding.ModelStateDictionary)">
+            <summary>
+                Validate model.
+            </summary>
+            
+            <param name="ptModelErr">ref Error message.</param>
+            <param name="poModelState">Parameter model.</param>
+            
+            <returns>
+                true : validate pass.<br/>
+                false : validate false.
+            </returns>
+        </member>
+        <member name="M:API2Wallet.Class.Standard.cSP.SP_SYSaLoadConfiguration">
+            <summary>
+                Load configuration.
+            </summary>
+            
+            <returns>
+                Configuration.
+            </returns>
+        </member>
+        <member name="M:API2Wallet.Class.Standard.cSP.SP_DATxGetConfigurationFromMem``1(``0@,``0,System.Collections.Generic.List{API2Wallet.Models.cmlTSysConfig},System.String)">
+            <summary>
+                Get configuration from memory.
+            </summary>
+            
+            <typeparam name="T">Type data user value.</typeparam>
+            <param name="poUsrValue">ref Data user value.</param>
+            <param name="poDefValue">Default data user value.</param>
+            <param name="paoSysConfig">Valiable TSysConfig in memory.</param>
+            <param name="ptSysSeq">Sequence.</param>
+        </member>
+        <member name="M:API2Wallet.Class.Standard.cSP.SP_CHKbAllowRangeTime(System.Collections.Generic.List{API2Wallet.Models.cmlTSysConfig})">
+            <summary>
+                Check allow to user function in range time.
+            </summary>
+            
+            <param name="paoSysConfig">Configuration.</param>
+            
+            <returns>
+                true : Allow to use.<br/>
+                false : Not allow to use.
+            </returns>
+        </member>
+        <member name="M:API2Wallet.Class.Standard.cSP.SP_CHKbKeyApi(System.String,System.Web.HttpContext)">
+            <summary>
+                Check key API.
+            </summary>
+            
+            <param name="ptKeyApi">ref Key API.</param>
+            <param name="ptFuncName">Function name.</param>
+            <param name="poHttpContext">HttpContext.</param>
+            <param name="paoSysConfig">Valiable TSysConfig in memory.</param>
+            
+            <returns>
+                true : Verify key API pass.
+                false : Verify key API false.
+            </returns>
+        </member>
+        <member name="M:API2Wallet.Class.Standard.cSP.SP_GEToCard(System.Collections.Generic.List{API2Wallet.Models.cmlTSysConfig},System.String,System.Int32)">
+            <summary>
+            Get ข้อมูลบัตร
+            </summary>
+            <param name="paoSysConfig"></param>
+            <param name="ptCrdCode"></param>
+            <param name="pnLngID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API2Wallet.Class.Standard.cSP.SP_GEToValueCard(System.Int32,System.String,System.Int32,System.Decimal)">
+            <summary>
+            
+            </summary>
+            <param name="pnTxnOffline"></param>
+            <param name="ptCrdCode"></param>
+            <param name="pnLngID"></param>
+            <param name="pcAvailable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API2Wallet.Class.Standard.cSP.SP_GEToCardNew(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="paoSysConfig"></param>
+            <param name="ptCrdCode"></param>
+            <param name="pnLngID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API2Wallet.Class.Standard.cSP.SP_GEToCardByStored(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="ptCrdCode"></param>
+            <param name="pnLngID"></param>
+            <returns></returns>
+        </member>
+        <member name="T:API2Wallet.Class.Topup.cTopup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Class.Topup.cTopup.C_DATbProcTopup(API2Wallet.Models.WebService.Request.Topup.cmlReqTopup,System.String@,System.String@,API2Wallet.Models.WebService.Response.Topup.cmlResTopup@)">
+            <summary>
+            
+            </summary>
+            <param name="poPara"></param>
+            <param name="ptErrCode"></param>
+            <param name="ptErrDesc"></param>
+            <param name="poResult"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API2Wallet.Class.Topup.cTopup.C_DATbProcCancelTopup(API2Wallet.Models.WebService.Request.Topup.cmlReqCancelTopup,System.String@,System.String@,API2Wallet.Models.WebService.Response.Topup.cmlResCancelTopup@)">
+            <summary>
+            
+            </summary>
+            <param name="poPara"></param>
+            <param name="ptErrCode"></param>
+            <param name="ptErrDesc"></param>
+            <param name="poResult"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API2Wallet.Class.Topup.cTopup.C_DATbVerifyResetAvb(API2Wallet.Models.WebService.Request.Topup.cmlReqResetAvi,System.String@,System.String@,API2Wallet.Models.WebService.Response.Topup.cmlResResetAvb@)">
+            <summary>
+            
+            </summary>
+            <param name="poPara"></param>
+            <param name="ptErrCode"></param>
+            <param name="ptErrDesc"></param>
+            <param name="poErrPay"></param>
+            <returns></returns>
+        </member>
+        <member name="T:API2Wallet.Class.Tranfer.cTranfer">
+            <summary>
+            Information Class tranfer
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Class.Tranfer.cTranfer.C_PUNoTnfCrd(API2Wallet.Models.WebService.Request.Tranfer.cmlReqTnfCrd)">
+            <summary>
+            
+            </summary>
+            <param name="poPara"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API2Wallet.Class.Tranfer.cTranfer.C_DATbProcTnfCrd(API2Wallet.Models.WebService.Request.Tranfer.cmlReqTnfCrd,System.String@,System.String@,API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfCrd@)">
+            <summary>
+            
+            </summary>
+            <param name="poPara"></param>
+            <param name="ptErrCode"></param>
+            <param name="ptErrDesc"></param>
+            <param name="poResult"></param>
+            <returns></returns>
+        </member>
+        <member name="T:API2Wallet.Controllers.cCardController">
+            <summary>
+            Change Card information.
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Controllers.cCardController.POST_PUNoChangeCard(System.Collections.Generic.List{API2Wallet.Models.WebService.Request.ChangeCard.cmlReqChangeCard})">
+            <summary>
+             เปลี่ยนบัตรเป็นชุด//ChangeCardLis
+            </summary>
+            <param name="poPara"></param>
+            <returns>
+               System process status<br/>
+               &#8195;     1   : success.<br/>
+               &#8195;     701 : validate parameter model false.<br/>
+               &#8195;     713 : Card Date expired..<br/>
+               &#8195;     716 : ResetExpire card unsuccess."..<br/>
+               &#8195;     800 : data not found.<br/>
+               &#8195;     802 : formate data incorrect..<br/>
+               &#8195;     900 : service process false.<br/>
+               &#8195;     904 : key not allowed to use method.<br/>
+               &#8195;     905 : cannot connect database.<br/>
+               &#8195;     906 : this time not allowed to use method.<br/>
+            </returns>
+        </member>
+        <member name="M:API2Wallet.Controllers.cCardController.POST_PUNoCancelCard(System.Collections.Generic.List{API2Wallet.Models.WebService.Request.Card.cmlReqChangeSta})">
+            <summary>
+             ยกเลิกบัตร Cancel Card
+            </summary>
+            <param name="poPara"></param>
+            <returns>
+              System process status.<br/>
+              &#8195;    1   : success.<br/>
+              &#8195;    701 : validate parameter model false.<br/>
+              &#8195;    713 : Card Date expired.<br/>
+              &#8195;    716 : ResetExpire card unsuccess.<br/>
+              &#8195;    800 : data not found.<br/>
+              &#8195;    802 : formate data incorrect..<br/>
+              &#8195;    900 : service process false.<br/>
+              &#8195;    904 : key not allowed to use method.<br/>
+              &#8195;    905 : cannot connect database.<br/>
+              &#8195;    906 : this time not allowed to use method.<br/>
+            </returns>
+        </member>
+        <member name="M:API2Wallet.Controllers.cCardController.POST_PUNoCardClearList(System.Collections.Generic.List{API2Wallet.Models.WebService.Request.Card.cmlReqCardClearList})">
+            <summary>
+            ล้างบัตร//Card Clear List
+            </summary>
+            <param name="poPara"></param>
+            <returns>
+              System process status.<br/>
+              &#8195;    1   : success.<br/>
+              &#8195;    701 : validate parameter model false.<br/>
+              &#8195;    900 : service process false.<br/>
+              &#8195;    904 : key not allowed to use method.<br/>
+              &#8195;    905 : cannot connect database.<br/>
+              &#8195;    906 : this time not allowed to use method.<br/>
+            </returns>
+        </member>
+        <member name="M:API2Wallet.Controllers.cCardController.POST_PUNoCardNewList(System.Collections.Generic.List{API2Wallet.Models.WebService.Request.Card.cmlReqCardNewList})">
+            <summary>
+            เพิ่มบัตรใหม่//CardNewList
+            </summary>
+            <param name="poPara"></param>
+            <returns></returns>
+        </member>
+        <member name="T:API2Wallet.Controllers.cCheckCrdHistoryController">
+            <summary>
+            Card History information
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Controllers.cCheckCrdHistoryController.POST_PUNoCrdHistory(API2Wallet.Models.WebService.Request.CardHistory.cmlReqCardHistory)">
+            <summary>
+             ประวัติการทำรายการบัตร Card History
+            </summary>
+            <param name="poPrm"></param>
+            <returns>
+               System process status<br/>
+               &#8195;     1   : success.<br/>
+               &#8195;     701 : validate parameter model false.<br/>
+               &#8195;     713 : Card Date expired..<br/>
+               &#8195;     716 : ResetExpire card unsuccess."..<br/>
+               &#8195;     800 : data not found.<br/>
+               &#8195;     802 : formate data incorrect..<br/>
+               &#8195;     900 : service process false.<br/>
+               &#8195;     904 : key not allowed to use method.<br/>
+               &#8195;     905 : cannot connect database.<br/>
+               &#8195;     906 : this time not allowed to use method.<br/>
+            </returns>
+        </member>
+        <member name="T:API2Wallet.Controllers.cCheckOnlineController">
+            <summary>
+            Information Class online
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Controllers.cCheckOnlineController.GET_CHKoIsOnline">
+             <summary>
+             Function check online (เช็คผ่าน URL)
+             </summary>
+             <returns>
+             System process status.<br/>
+            &#8195;     1   : success.<br/>    
+            &#8195;     900 : service process false.<br/>
+            &#8195;     904 : key not allowed to use method.<br/>
+            &#8195;     905 : cannot connect database.<br/>
+             </returns>
+        </member>
+        <member name="T:API2Wallet.Controllers.cCouponController">
+            <summary>
+            Card History information
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Controllers.cCouponController.POST_CHKoCheckCoupon(API2Wallet.Models.WebService.Request.Coupon.cmlReqCoupon)">
+            <summary>
+             ตรวจสอบข้อมูลคูปองที่ใช้ได้
+            </summary>
+            <param name="poData"></param>
+            <returns>
+               System process status<br/>
+               &#8195;     1   : success.<br/>
+               &#8195;     701 : validate parameter model false.<br/>
+               &#8195;     800 : data not found.<br/>
+               &#8195;     900 : service process false.<br/>
+               &#8195;     905 : cannot connect database.<br/>
+               &#8195;     906 : this time not allowed to use method.<br/>
+            </returns>
+        </member>
+        <member name="M:API2Wallet.Controllers.cCouponController.POST_CHKoCheckCouponHD(API2Wallet.Models.WebService.Request.Coupon.cmlReqCoupon)">
+            <summary>
+             ตรวจสอบข้อมูลคูปองที่ใช้ได้
+            </summary>
+            <param name="poData"></param>
+            <returns>
+               System process status<br/>
+               &#8195;     1   : success.<br/>
+               &#8195;     701 : validate parameter model false.<br/>
+               &#8195;     800 : data not found.<br/>
+               &#8195;     900 : service process false.<br/>
+               &#8195;     905 : cannot connect database.<br/>
+               &#8195;     906 : this time not allowed to use method.<br/>
+            </returns>
+        </member>
+        <member name="M:API2Wallet.Controllers.cCouponController.POST_CANoCancelPayCoupon(API2Wallet.Models.WebService.Request.Coupon.cmlReqCancelPayCoupon)">
+            <summary>
+             ยกเลิกการใช้ Coupon
+            </summary>
+            <param name="poData"></param>
+            <returns>
+               System process status<br/>
+               &#8195;     1   : success.<br/>
+               &#8195;     701 : validate parameter model false.<br/>
+               &#8195;     800 : data not found.<br/>
+               &#8195;     900 : service process false.<br/>
+               &#8195;     905 : cannot connect database.<br/>
+               &#8195;     906 : this time not allowed to use method.<br/>
+            </returns>
+        </member>
+        <member name="T:API2Wallet.Controllers.cOnlineController">
+            <summary>
+            Information Class online
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Controllers.cOnlineController.POST_CHKoIsOnline">
+             <summary>
+             Is online ตรวจสอบ connection
+             </summary>
+             <returns>
+             System process status.<br/>
+            &#8195;     1   : success.<br/>    
+            &#8195;     900 : service process false.<br/>
+            &#8195;     905 : cannot connect database.<br/>
+            &#8195;     906 : this time not allowed to use method.<br/>
+             </returns>
+        </member>
+        <member name="T:API2Wallet.Controllers.cPayController">
+            <summary>
+            Pay information.
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Controllers.cPayController.POST_PUNoInsPayTxn(API2Wallet.Models.WebService.Request.Pay.cmlReqPayTxn)">
+             <summary>
+             ตัดจ่าย//PayTxn
+             </summary>
+             <param name="poPara"></param>
+             <returns>
+            System process status.<br/>
+            &#8195;     1   : success.<br/>
+            &#8195;     701 : validate parameter model false.<br/>
+            &#8195;     713 : Card Date expired.<br/>
+            &#8195;     714 : The amount of money in the card is not enough.<br/>
+            &#8195;     721 : Data sale not found.<br/>
+            &#8195;     800 : data not found.<br/>
+            &#8195;     802 : formate data incorrect.<br/>
+            &#8195;     900 : service process false.<br/>
+            &#8195;     904 : key not allowed to use method.<br/>
+            &#8195;     905 : cannot connect database.<br/>
+            &#8195;     906 : this time not allowed to use method.<br/>
+             </returns>
+        </member>
+        <member name="M:API2Wallet.Controllers.cPayController.POST_PUNoInsCancelPayTxn(API2Wallet.Models.WebService.Request.Pay.cmlReqCancelpayTxn)">
+             <summary>
+             ยกเลิกการตัดจ่าย//CancelPayTxn
+             </summary>
+             <param name="poPara"></param>
+             <returns>
+                 System process status.<br/>
+            &#8195;     1   : success.<br/>
+            &#8195;     701 : validate parameter model false.<br/>
+            &#8195;     713 : Card Date expired.<br/>
+            &#8195;     715 : Record is canceled.<br/>
+            &#8195;     721 : Data sale not found.<br/>
+            &#8195;     800 : data not found.<br/>
+            &#8195;     802 : formate data incorrect..<br/>
+            &#8195;     900 : service process false.<br/>
+            &#8195;     904 : key not allowed to use method.<br/>
+            &#8195;     905 : cannot connect database.<br/>
+            &#8195;     906 : this time not allowed to use method.<br/>
+             </returns>
+        </member>
+        <member name="M:API2Wallet.Controllers.cPayController.POST_PAYoCheckPayTxn(API2Wallet.Models.WebService.Request.Pay.cmlReqCheckPayTxn)">
+             <summary>
+             ตรวจสอบรายการการตัดจ่าย ยกเลิกตัดจ่าย
+             </summary>
+             <param name="poPara">Document information.</param>
+             <returns>
+             Transaction payment.<br/>
+             System process status.<br/>
+            &#8195;     1   : success.<br/>
+            &#8195;     701 : validate parameter model false.<br/>
+            &#8195;     800 : data not found.<br/>
+            &#8195;     900 : service process false.<br/>
+            &#8195;     905 : cannot connect database.<br/>
+             </returns>
+        </member>
+        <member name="T:API2Wallet.Controllers.cSpotCheckController">
+            <summary>
+            SpotCheck information.
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Controllers.cSpotCheckController.POST_GEToSportCheck(API2Wallet.Models.WebService.Request.SpotCheck.cmlReqSpotChk)">
+             <summary>
+             ตรวจสอบยอดคงเหลือ
+             </summary>
+             <param name="poPara"></param>
+             <returns>
+                 System process status.<br/>
+            &#8195;     1   : success.<br/>
+            &#8195;     701 : validate parameter model false.<br/>
+            &#8195;     800 : data not found.<br/>
+            &#8195;     802 : formate data incorrect..<br/>
+            &#8195;     900 : service process false.<br/>
+            &#8195;     904 : key not allowed to use method.<br/>
+            &#8195;     905 : cannot connect database.<br/>
+            &#8195;     906 : this time not allowed to use method.<br/>
+             </returns>
+        </member>
+        <member name="T:API2Wallet.Controllers.cTopupController">
+            <summary>
+            Topup information.
+            </summary>
+        </member>
+        <member name="M:API2Wallet.Controllers.cTopupController.POST_PUNoInsTopup(API2Wallet.Models.WebService.Request.Topup.cmlReqTopup)">
+             <summary>
+             เติมเงิน Topup
+             </summary>
+             <param name="poPara"></param>
+             <returns>
+                 System process status.<br/>
+            &#8195;     1   : success.<br/>
+            &#8195;     701 : validate parameter model false.<br/>
+            &#8195;     713 : Card Date expired.<br/>
+            &#8195;     716 : ResetExpire card unsuccess.<br/>
+            &#8195;     800 : data not found.<br/>
+            &#8195;     802 : formate data incorrect..<br/>
+            &#8195;     900 : service process false.<br/>
+            &#8195;     904 : key not allowed to use method.<br/>
+            &#8195;     905 : cannot connect database.<br/>
+            &#8195;     906 : this time not allowed to use method.<br/>
+             </returns>
+        </member>
+        <member name="M:API2Wallet.Controllers.cTopupController.POST_PUNoInsCancelTopup(API2Wallet.Models.WebService.Request.Topup.cmlReqCancelTopup)">
+             <summary>
+             ยกเลิกเติมเงิน CancelTopup
+             </summary>
+             <param name="poPara"></param>
+             <returns>
+                 System process status.<br/>
+            &#8195;     1   : success.<br/>
+            &#8195;     701 : validate parameter model false.<br/>
+            &#8195;     713 : Card Date expired.<br/>
+            &#8195;     716 : ResetExpire card unsuccess.<br/>
+            &#8195;     800 : data not found.<br/>
+            &#8195;     802 : formate data incorrect.<br/>
+            &#8195;     814 : Not found data TFNTCrdTopUp.<br/>
+            &#8195;     815 : Not enough balance to cancel.<br/>
+            &#8195;     816 : Record is canceled.<br/>
+            &#8195;     900 : service process false.<br/>
+            &#8195;     904 : key not allowed to use method.<br/>
+            &#8195;     905 : cannot connect database.<br/>
+            &#8195;     906 : this time not allowed to use method.<br/>
+             </returns>
+        </member>
+        <member name="M:API2Wallet.Controllers.cTopupController.POST_PUNoResetAvailableTopup(API2Wallet.Models.WebService.Request.Topup.cmlReqResetAvi)">
+             <summary>
+             แลกคืน//ResetAvailable
+             </summary>
+             <param name="poPara"></param>
+             <returns>
+                 System process status.<br/>
+            &#8195;     1   : success.<br/>
+            &#8195;     701 : validate parameter model false.<br/>
+            &#8195;     713 : Card Date expired<br/>
+            &#8195;     716 : ResetExpire card unsuccess.<br/>
+            &#8195;     800 : data not found.<br/>
+            &#8195;     802 : formate data incorrect..<br/>
+            &#8195;     900 : service process false.<br/>
+            &#8195;     904 : key not allowed to use method.<br/>
+            &#8195;     905 : cannot connect database.<br/>
+            &#8195;     906 : this time not allowed to use method.<br/>
+             </returns>
+        </member>
+        <member name="M:API2Wallet.Controllers.cTopupController.POST_PUNoApvOpenCard(System.Collections.Generic.List{API2Wallet.Models.WebService.Request.Topup.cmlReqApvReturnCard})">
+             <summary>
+             เบิกบัตร//ApvOpenCardManual
+             </summary>
+             <param name="poPara"></param>
+             <returns>
+                 System process status.<br/>
+            &#8195;     1   : success.<br/>
+            &#8195;     701 : validate parameter model false.<br/>
+            &#8195;     802 : formate data incorrect..<br/>
+            &#8195;     900 : service process false.<br/>
+            &#8195;     904 : key not allowed to use method.<br/>
+            &#8195;     905 : cannot connect database.<br/>
+            &#8195;     906 : this time not allowed to use method.<br/>
+             </returns>
+        </member>
+        <member name="M:API2Wallet.Controllers.cTopupController.POST_PUNoApvReturnCard(System.Collections.Generic.List{API2Wallet.Models.WebService.Request.Topup.cmlReqApvReturnCard})">
+             <summary>
+             คืนบัตร//ApvReturnCard
+             </summary>
+             <param name="poPara"></param>
+             <returns>
+                 System process status.<br/>
+            &#8195;     1   : success.<br/>
+            &#8195;     701 : validate parameter model false.<br/>
+            &#8195;     802 : formate data incorrect..<br/>
+            &#8195;     900 : service process false.<br/>
+            &#8195;     904 : key not allowed to use method.<br/>
+            &#8195;     905 : cannot connect database.<br/>
+            &#8195;     906 : this time not allowed to use method.<br/>
+             </returns>
+        </member>
+        <member name="M:API2Wallet.Controllers.cTopupController.POST_PUNoReturnTopupList(System.Collections.Generic.List{API2Wallet.Models.WebService.Request.Topup.cmlReqReturnTopupList})">
+             <summary>
+             ยกเลิกเติมเงินเป็นชุด//ReturnTopupList
+             </summary>
+             <param name="poPara"></param>
+             <returns>
+                 System process status.<br/>
+            &#8195;     1   : success.<br/>
+            &#8195;     701 : validate parameter model false.<br/>
+            &#8195;     802 : formate data incorrect..<br/>
+            &#8195;     900 : service process false.<br/>
+            &#8195;     904 : key not allowed to use method.<br/>
+            &#8195;     905 : cannot connect database.<br/>
+            &#8195;     906 : this time not allowed to use method.<br/>
+             </returns>
+        </member>
+        <member name="M:API2Wallet.Controllers.cTopupController.POST_PUNoTopupList(System.Collections.Generic.List{API2Wallet.Models.WebService.Request.Topup.cmlReqTopupList})">
+             <summary>
+              เติมเงินเป็นชุด // Topup List
+             </summary>
+             <param name="poPara"></param>
+             <returns>
+                 System process status.<br/>
+            &#8195;     1   : success.<br/>
+            &#8195;     701 : validate parameter model false.<br/>
+            &#8195;     802 : formate data incorrect..<br/>
+            &#8195;     900 : service process false.<br/>
+            &#8195;     904 : key not allowed to use method.<br/>
+            &#8195;     905 : cannot connect database.<br/>
+            &#8195;     906 : this time not allowed to use method.<br/>
+             </returns>
+        </member>
+        <member name="M:API2Wallet.EF.AdaFCEntities.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:API2Wallet.EF.AdaFCEntities.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ptConnStr"></param>
+        </member>
+        <member name="M:API2Wallet.EF.AdaFCEntities.OnModelCreating(System.Data.Entity.DbModelBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="modelBuilder"></param>
+        </member>
+        <member name="T:API2Wallet.Models.cmlTFNMCardType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCardType.FTCtyCode">
+            <summary>
+            รหัส
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCardType.FCCtyDeposit">
+            <summary>
+            เงินมัดจำบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCardType.FCCtyTopupAuto">
+            <summary>
+            ยอดเติมเงิน อัตโนมัติ
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCardType.FNCtyExpirePeriod">
+            <summary>
+            จำนวนวันหมดอายุบัตร (0:No check)
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCardType.FNCtyExpiredType">
+            <summary>
+            1:hour 2:day 3:month 4:year
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCardType.FTCtyStaAlwRet">
+            <summary>
+            สถานะอนุญาตคืน
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCardType.FDLastUpdOn">
+            <summary>
+            วันที่ปรับปรุงรายการล่าสุด
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCardType.FDCreateOn">
+            <summary>
+            วันที่ปรับปรุงรายการล่าสุด
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCardType.FTLastUpdBy">
+            <summary>
+            ผู้ปรับปรุงรายการล่าสุด
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCardType.FTCreateBy">
+            <summary>
+            ผู้สร้างรายการ
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Request.Card.cmlReqCardClearList">
+            <summary>
+            Information class request  CardClearList
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Card.cmlReqCardClearList.ptCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Card.cmlReqCardClearList.ptBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Card.cmlReqCardClearList.ptDocNoRef">
+            <summary>
+            เลขที่เอกสารอ้างอิง
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Request.Card.cmlReqCardNewList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Card.cmlReqCardNewList.pnLngID">
+            <summary>
+            รหัสภาษา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Card.cmlReqCardNewList.ptBchCode">
+            <summary>
+             รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Card.cmlReqCardNewList.ptCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Card.cmlReqCardNewList.ptCtyCode">
+            <summary>
+            รหัสประเภทบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Card.cmlReqCardNewList.ptCrdHolderID">
+            <summary>
+            รหัสผู้ถือบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Card.cmlReqCardNewList.ptDptCode">
+            <summary>
+            รหัสแผนก
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Card.cmlReqCardNewList.ptCrdName">
+            <summary>
+            ชื่อผู้ถือบัตร
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Request.Card.cmlReqChangeSta">
+            <summary>
+            Information Cancel card
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Card.cmlReqChangeSta.ptCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Card.cmlReqChangeSta.ptBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Card.cmlReqChangeSta.ptCrdSta">
+            <summary>
+            สถานะบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Card.cmlReqChangeSta.ptDocNoRef">
+            <summary>
+            เลขที่เอกสารอ้างอิง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Coupon.cmlReqCancelPayCoupon.ptCpbFrmBch">
+            <summary>
+            จากสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Coupon.cmlReqCancelPayCoupon.ptCpbFrmPos">
+            <summary>
+            จากเครื่องจุดขาย
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Coupon.cmlReqCancelPayCoupon.ptCpbFrmSaleRef">
+            <summary>
+            เลขที่เอกสารอ้างอิง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Coupon.cmlReqCoupon.ptCouponType">
+            <summary>
+            ประเภทคูปอง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Coupon.cmlReqCoupon.ptCpnDocNo">
+            <summary>
+            เลขที่เอกสารคูปอง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Coupon.cmlReqCoupon.ptBarCpn">
+            <summary>
+            รหัสคูปอง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Coupon.cmlReqCoupon.ptBranch">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Coupon.cmlReqCoupon.ptPriceGroup">
+            <summary>
+            กลุ่มราคา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Coupon.cmlReqCoupon.ptMerchant">
+            <summary>
+            Merchant
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Coupon.cmlReqCoupon.pnLangID">
+            <summary>
+            รหัสภาษา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Coupon.cmlReqCoupon.ptCstCode">
+            <summary>
+            รหัสลูกค้า
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Request.Pay.cmlReqCheckPayTxn">
+            <summary>
+            Check payment transaction parameter.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqCheckPayTxn.ptDocNo">
+            <summary>
+            Document no.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqCheckPayTxn.ptPosCode">
+            <summary>
+            POS code.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqCheckPayTxn.ptBchCode">
+            <summary>
+            Branch code.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqCheckPayTxn.ptDocType">
+            <summary>
+            Document type.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqCheckPayTxn.pnLngID">
+            <summary>
+            Language ID.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqCheckPayTxn.pdSysDate">
+            <summary>
+            System date from client.
+            </summary>
+            <remarks>
+            *[AnUBiS][][2019-06-14]
+            </remarks>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqCheckPayTxn.pnPrevious">
+            <summary>
+            Condition system date previous.
+            </summary>
+            <remarks>
+            *[AnUBiS][][2019-06-14]
+            </remarks>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Request.Pay.cmlReqCancelpayTxn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqCancelpayTxn.ptCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqCancelpayTxn.ptBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqCancelpayTxn.pnTxnID">
+            <summary>
+            ลำดับอ้างอิง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqCancelpayTxn.ptTxnDocNoRef">
+            <summary>
+            เลขที่เอกสารอ้างอิง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqCancelpayTxn.pnLngID">
+            <summary>
+            (รหัสภาษา)
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqCancelpayTxn.pcAvailable">
+            <summary>
+            (ยอดเงินใช้ได้จาก บัตร/wristband)
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqCancelpayTxn.pnTxnOffline">
+            <summary>
+            (จำนวนครั้งที่ใช้งาน offline จาก บัตร/wristband)
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqCancelpayTxn.ptShpCode">
+            <summary>
+            รหัสร้านค้า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqCancelpayTxn.ptPosCode">
+            <summary>
+            รหัสเครื่อง POS
+            </summary>
+            
+            <remarks>
+            *[AnUBiS][][2019-02-27] - add property.
+            </remarks>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Request.Pay.cmlReqPayTxn">
+            <summary>
+            Request Model ตัดจ่าย//PayTxn
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqPayTxn.ptCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqPayTxn.ptBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqPayTxn.ptTxnPosCode">
+            <summary>
+            รหัสเครื่อง POS
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqPayTxn.ptTxnDocNoRef">
+            <summary>
+            เลขที่เอกสารอ้างอิง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqPayTxn.pcTxnValue">
+            <summary>
+            ยอดเงิน
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqPayTxn.pcCrdDeposit">
+            <summary>
+            ยอดมัดจำบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqPayTxn.pcCrdDepositPdt">
+            <summary>
+            ยอดมัดจำสินค้า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqPayTxn.pnLngID">
+            <summary>
+            รหัสภาษา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqPayTxn.pcAvailable">
+            <summary>
+            ยอดเงินใช้ได้จาก บัตร/wristband
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqPayTxn.pnTxnOffline">
+            <summary>
+            จำนวนครั้งที่ใช้งาน offline จาก บัตร/wristband
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqPayTxn.ptShpCode">
+            <summary>
+            รหัสร้านค้า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqPayTxn.pnTxnRef">
+            <summary>
+            ลำดับเอกสารอ้างอิง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqReturnDeposit.ptCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqReturnDeposit.ptBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqReturnDeposit.pnTxnID">
+            <summary>
+            ลำดับอ้างอิง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Pay.cmlReqReturnDeposit.ptTxnDocNoRef">
+            <summary>
+            เลขที่เอกสารอ้างอิง
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Request.CardHistory.cmlReqCardHistory">
+            <summary>
+            Information class model Request Card history
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.CardHistory.cmlReqCardHistory.ptCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.CardHistory.cmlReqCardHistory.ptBchCode">
+            <summary>
+            สาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.CardHistory.cmlReqCardHistory.pnQty">
+            <summary>
+            จำนวนรายการที่ต้องการแสดง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.CardHistory.cmlReqCardHistory.ptSort">
+            <summary>
+            Sort การเรียงลำดับข้อมูล 0 = น้อย , 1 = มาก 
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.CardHistory.cmlReqCardHistory.pnTxnOffline">
+            <summary>
+            จำนวนครั้งที่ใช้งาน offline จาก บัตร/wristband
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.CardHistory.cmlReqCardHistory.ptTxnDocDate">
+            <summary>
+            วันที่เอกสาร formate yyyy-MM-dd
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Request.ChangeCard.cmlReqChangeCard">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.ChangeCard.cmlReqChangeCard.ptFrmCrdCode">
+            <summary>
+            จากรหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.ChangeCard.cmlReqChangeCard.ptToCrdCode">
+            <summary>
+            ถึงรหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.ChangeCard.cmlReqChangeCard.ptBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.ChangeCard.cmlReqChangeCard.ptDocNoRef">
+            <summary>
+            เลขที่เอกสารอ้างอิง
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Request.SpotCheck.cmlReqSpotChk">
+            <summary>
+            Information class Model Request cmlReqSpotChk
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.SpotCheck.cmlReqSpotChk.ptCrdCode">
+            <summary>
+            (รหัสบัตร/wristband)
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.SpotCheck.cmlReqSpotChk.ptBchCode">
+            <summary>
+            (รหัสสาขา)
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.SpotCheck.cmlReqSpotChk.pnLngID">
+            <summary>
+            (รหัสภาษา)
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.SpotCheck.cmlReqSpotChk.pcAvailable">
+            <summary>
+            (ยอดเงินใช้ได้จาก บัตร/wristband)
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.SpotCheck.cmlReqSpotChk.pnTxnOffline">
+            <summary>
+            (จำนวนครั้งที่ใช้งาน offline จาก บัตร/wristband)
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqApvReturnCard.ptCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqApvReturnCard.ptBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqApvReturnCard.ptDocNoRef">
+            <summary>
+            เลขที่เอกสารอ้างอิง
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Request.Topup.cmlReqCancelTopup">
+            <summary>
+            Information class request cancel topup
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqCancelTopup.ptCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqCancelTopup.ptBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqCancelTopup.pnTxnID">
+            <summary>
+            ลำดับอ้างอิง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqCancelTopup.ptTxnDocNoRef">
+            <summary>
+            เลขที่เอกสารอ้างอิง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqCancelTopup.pnLngID">
+            <summary>
+            (รหัสภาษา)
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqCancelTopup.pcAvailable">
+            <summary>
+            (ยอดเงินใช้ได้จาก บัตร/wristband)
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqCancelTopup.pnTxnOffline">
+            <summary>
+            (จำนวนครั้งที่ใช้งาน offline จาก บัตร/wristband)
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqResetAvi.ptCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqResetAvi.ptBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqResetAvi.ptTxnPosCode">
+            <summary>
+            รหัสเครื่อง POS
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqResetAvi.ptDocNoRef">
+            <summary>
+            เลขที่เอกสารอ้างอิง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqReturnTopupList.ptCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqReturnTopupList.ptBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqReturnTopupList.pcTxnValue">
+            <summary>
+            มูลค่า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqReturnTopupList.ptAuto">
+            <summary>
+            สถานะยกเลิกเติมเงิน Auto or manual
+            0: manual, 1: Auto
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqReturnTopupList.ptTxnPosCode">
+            <summary>
+            รหัสเครื่อง POS
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqReturnTopupList.ptShpCode">
+            <summary>
+            รหัสร้านค้า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqReturnTopupList.ptDocNoRef">
+            <summary>
+            เลขที่เอกสารอ้างอิง
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Request.Topup.cmlReqTopup">
+            <summary>
+            Information class request topup
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqTopup.ptCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqTopup.ptBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqTopup.pcTxnValue">
+            <summary>
+            มูลค่า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqTopup.ptAuto">
+            <summary>
+            สถานะเติมเงิน Auto or manual
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqTopup.ptTxnPosCode">
+            <summary>
+            รหัสเครื่อง POS
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqTopup.pnLngID">
+            <summary>
+            (รหัสภาษา)
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqTopup.pcAvailable">
+            <summary>
+            (ยอดเงินใช้ได้จาก บัตร/wristband)
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqTopup.pnTxnOffline">
+            <summary>
+            (จำนวนครั้งที่ใช้งาน offline จาก บัตร/wristband)
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqTopup.ptShpCode">
+            <summary>
+            รหัสร้านค้า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqTopup.ptDocNoRef">
+            <summary>
+            เลขที่เอกสารอ้างอิง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqTopupList.ptCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqTopupList.ptBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqTopupList.pcTxnValue">
+            <summary>
+            มูลค่า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqTopupList.ptAuto">
+            <summary>
+            สถานะเติมเงิน Auto or manual
+            0: manual, 1: Auto
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqTopupList.ptTxnPosCode">
+            <summary>
+            รหัสเครื่อง POS
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqTopupList.ptShpCode">
+            <summary>
+            รหัสร้านค้า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlReqTopupList.ptDocNoRef">
+            <summary>
+            เลขที่เอกสารอ้างอิง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlRrqApvReturnCard.ptCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Topup.cmlRrqApvReturnCard.ptBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Request.Tranfer.cmlReqTnfCrd">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Tranfer.cmlReqTnfCrd.ptFrmCrdCode">
+            <summary>
+            จากรหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Tranfer.cmlReqTnfCrd.ptToCrdCode">
+            <summary>
+            ถึงรหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Tranfer.cmlReqTnfCrd.ptBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Tranfer.cmlReqTnfCrd.pcFrmCrdValue">
+            <summary>
+            ยอดทั้งหมดบัตรเก่า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Tranfer.cmlReqTnfCrd.pcToCrdValue">
+            <summary>
+            ยอดทั้งหมดบัตรใหม่
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Tranfer.cmlReqTnfCrd.ptDocNoRef">
+            <summary>
+            เลขที่เอกสารอ้างอิง หรือ id กรณี Offline
+            </summary>
+            
+            <remarks>
+            *[AnUBiS][][2019-02-13] - add new property.
+            </remarks>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Tranfer.cmlReqTnfIn.ptCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Tranfer.cmlReqTnfIn.ptBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Tranfer.cmlReqTnfIn.pcTxnValue">
+            <summary>
+            มูลค่า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Tranfer.cmlReqTnfIn.ptRemark">
+            <summary>
+            Remark
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Tranfer.cmlReqTnfIn.pcCrdDeposit">
+            <summary>
+            ยอดมัดจำสินค้า
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Request.Tranfer.cmlReqTnfOut">
+            <summary>
+            Information class Request Transfer OUT
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Tranfer.cmlReqTnfOut.ptCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Tranfer.cmlReqTnfOut.ptBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Request.Tranfer.cmlReqTnfOut.ptRemark">
+            <summary>
+            Remark
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.Card.cmlResaoCardClearList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Card.cmlResaoCardClearList.rtCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Card.cmlResaoCardClearList.rtStatus">
+            <summary>
+            สถานะ  
+            1: สำเร็จ
+            2: ไม่สำเร็จ
+            3: ไม่พบข้อมูลบัตร
+            /// </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.Card.cmlResaoCardNewList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Card.cmlResaoCardNewList.rtCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Card.cmlResaoCardNewList.rtCrdHolderID">
+            <summary>
+            รหัสผู้ถือบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Card.cmlResaoCardNewList.rtStatus">
+            <summary>
+            สถานะ  
+            1: สำเร็จ
+            2: ไม่สำเร็จ
+            3: ไม่พบข้อมูลบัตร
+            /// </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.Card.cmlResCardClearList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Card.cmlResCardClearList.raoCardClearList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.Card.cmlResCardNewList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Card.cmlResCardNewList.raoCardNewList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.Card.cmlResaoChangeSta">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Card.cmlResaoChangeSta.rtCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Card.cmlResaoChangeSta.rtBchCode">
+            <summary>
+            สาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Card.cmlResaoChangeSta.rtStatus">
+            <summary>
+            สถานะ  1: สำเร็จ,
+            2 : ไม่สำเร็จ,
+            3 :  จากรหัสบัตร หมดอายุรหัสบัตร,
+            4 :  ถึงรหัสบัตร หมดอายุรหัสบัตร,
+            5 :  ถึงรหัสบัตร ยังไม่เบิกใช้งาน,
+            6 :  ถึงรหัสบัตร ยังไม่เบิกใช้งาน,
+            7 :  จากรหัสบัตร Reset Expire ไมได้,
+            8 :   ถึงรหัสบัตร Reset Expire ไมได้
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.Card.cmlResaoChangeCard">
+            <summary>
+            Information class model response Array ChangeCard
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Card.cmlResaoChangeCard.rtFrmCrdCode">
+            <summary>
+            จากรหัสบบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Card.cmlResaoChangeCard.rtToCrdCode">
+            <summary>
+            ถึงรหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Card.cmlResaoChangeCard.rtBchCode">
+            <summary>
+            สาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Card.cmlResaoChangeCard.rtStatus">
+            <summary>
+            สถานะ  1: สำเร็จ,
+            2 : ไม่สำเร็จ,
+            3 :  จากรหัสบัตร หมดอายุรหัสบัตร,
+            4 :  ถึงรหัสบัตร หมดอายุรหัสบัตร,
+            5 :  จากรหัสบัตร ยังไม่เบิกใช้งาน,
+            6 :  ถึงรหัสบัตร ยังไม่เบิกใช้งาน,
+            7 :  จากรหัสบัตร Reset Expire ไมได้,
+            8 : ถึงรหัสบัตร Reset Expire ไมได้,
+            9 : รหัสพนักงานของบัตรต้นทางและปลายทางไม่ตรงกัน,
+            10: มูลค่าคงเหลือของบัตรปลายทางไม่เท่ากับ 0
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.Card.cmlResChangeSta">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Card.cmlResChangeSta.raoCancelCard">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Coupon.cmlResCouponList.rtBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Coupon.cmlResCouponList.rtCphDocNo">
+            <summary>
+            รหัสเอกสาร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Coupon.cmlResCouponList.rtCphDisType">
+            <summary>
+            ประเภทส่วนลด 1: ลดบาท , 2: ลด %
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Coupon.cmlResCouponList.rcCphDisValue">
+            <summary>
+            มูลค่าคูปอง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Coupon.cmlResCouponList.rtCpnName">
+            <summary>
+            ชื่อคูปอง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Coupon.cmlResCouponList.rtCpnMsg1">
+            <summary>
+            ข้อความแสดงบนคูปองบันทัดที่ 1
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Coupon.cmlResCouponList.rtCpnMsg2">
+            <summary>
+            ข้อความแสดงบนคูปองบันทัดที่ 2
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Coupon.cmlResCouponList.rtCpnCond">
+            <summary>
+            เงื่อนไขแสดงบนคูปอง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Coupon.cmlResCouponList.rtCpdBarCpn">
+            <summary>
+            คูปองบาร์ (หมายเลขคูปอง)
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Coupon.cmlResCouponList.rnCpdSeqNo">
+            <summary>
+            (AUTONUMBER)ลำดับ
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Coupon.cmlResCouponList.rtCptName">
+            <summary>
+            ชื่อประเภท
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Coupon.cmlResCouponList.rtCptType">
+            <summary>
+            ประเภท 1:คูปองเงินสด 2:คูปองส่วนลด
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Coupon.cmlResCouponList.rnQtyAvailable">
+            <summary>
+            จำนวคงเหลือที่ใช้ได้
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Coupon.cmlResCouponList.rnQtyLef">
+            <summary>
+            จำนวคงเหลือ
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Coupon.cmlResCouponList.rdCphDateStart">
+            <summary>
+            วันที่เริ่มใช้งาน
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Coupon.cmlResCouponList.rdCphDateStop">
+            <summary>
+            วันสิ้นสุดใช้งาน
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Coupon.cmlResCouponList.rtCphTimeStart">
+            <summary>
+            เวลาเริ่มใช้งาน
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Coupon.cmlResCouponList.rtCphTimeStop">
+            <summary>
+            เวลาสิ้นสุดใช้งาน
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.Base.cmlResBese">
+            <summary>
+            ตอบรับสถานะการทำงาน
+            </summary>
+        </member>
+        <member name="F:API2Wallet.Models.WebService.Response.Base.cmlResBese.rtCode">
+            <summary>
+            System process status.
+            </summary>
+        </member>
+        <member name="F:API2Wallet.Models.WebService.Response.Base.cmlResBese.rtDesc">
+            <summary>
+            System process description.
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.Base.cmlResResult`1">
+            <summary>
+            Result
+            </summary>
+            <typeparam name="Model">Model of result.</typeparam>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Base.cmlResResult`1.roItem">
+            <summary>
+            Item.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Base.cmlResResult`1.raoItems">
+            <summary>
+            List items.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Base.cmlResResult`1.rnCount">
+            <summary>
+            Count of items.
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.CardHistory.cmlResCardHistory">
+            <summary>
+            Card history information.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.CardHistory.cmlResCardHistory.raoCrdHistory">
+            <summary>
+            Card history list.
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.CardHistory.cmlResCardHistoryList">
+            <summary>
+            INformation Model ResCardHistoryList
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.CardHistory.cmlResCardHistoryList.rtType">
+            <summary>
+            ประเภทรายการ
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.CardHistory.cmlResCardHistoryList.rdDocDate">
+            <summary>
+            วันที่เอกสาร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.CardHistory.cmlResCardHistoryList.rtBchRef">
+            <summary>
+            รหัสสาขาอ้างอิง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.CardHistory.cmlResCardHistoryList.rtDocRef">
+            <summary>
+            เลขที่เอกสารอ้างอิง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.CardHistory.cmlResCardHistoryList.rcTxnValue">
+            <summary>
+            มูลค่า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.CardHistory.cmlResCardHistoryList.rnStaOffline">
+            <summary>
+            สถานะ Offline
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.CardHistory.cmlResCardHistoryList.rtShopName">
+            <summary>
+            ชื่อร้านค้า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.CardHistory.cmlResCardHistoryList.rcTxnDeposit">
+            <summary>
+            ยอดเงินมัดจำบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.CardHistory.cmlResCardHistoryList.rcTxnCrdValue">
+            <summary>
+            มูลค่าก่อนใช้
+            </summary>
+            <remarks>
+            *[AnUBiS][][2018-12-03] - add new property
+            </remarks>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.ChangeCard.cmlResChangeCard">
+            <summary>
+            Information class model response  ChangeCard
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.ChangeCard.cmlResChangeCard.raoChangeCard">
+            <summary>
+            Information class model response Array ChangeCard
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.Pay.cmlRescancelPayTxn">
+            <summary>
+            Respont Model ยกเลิกการตัดจ่าย//PayTxn
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlRescancelPayTxn.rcTxnValue">
+            <summary>
+            ยอดทั้งหมด
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlRescancelPayTxn.rcCrdDeposit">
+            <summary>
+            เงินมัดจำบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlRescancelPayTxn.rcCrdDepositPdt">
+            <summary>
+            เงินมัดจำบัตรสินค้า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlRescancelPayTxn.rcTxnValueAvb">
+            <summary>
+            ยอดใช้ได้
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlRescancelPayTxn.rtCrdName">
+            <summary>
+            ชื่อบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlRescancelPayTxn.rtCtyName">
+            <summary>
+            ประเภทบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlRescancelPayTxn.rdCrdExpireDate">
+            <summary>
+            วันที่บัตรหมดอายุ
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlRescancelPayTxn.rdCrdLastTopup">
+            <summary>
+            วันที่เติมเงินล่าสุด
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlRescancelPayTxn.rnTxnOffline">
+            <summary>
+            จำนวนครั้งที่ใช้งาน offline จาก บัตร/wristband
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlRescancelPayTxn.rnTxnID">
+            <summary>
+            ลำดับ Transection
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.Pay.cmlResCheckPayTxn">
+            <summary>
+            Payment transaction information.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResCheckPayTxn.rnTxnID">
+            <summary>
+            Transaction ID.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResCheckPayTxn.rtTxnDocNoRef">
+            <summary>
+            Document no.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResCheckPayTxn.rdTxnDocDate">
+            <summary>
+            Document date.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResCheckPayTxn.rtCrdCode">
+            <summary>
+            Card code.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResCheckPayTxn.rtCrdName">
+            <summary>
+            Card name.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResCheckPayTxn.rcTxnCrdValue">
+            <summary>
+            Card value.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResCheckPayTxn.rcTxnValue">
+            <summary>
+            Payment value.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResCheckPayTxn.rnTxnIDRef">
+            <summary>
+            Document no. in case cancel payment.
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResCheckPayTxn.rtCrdHolderID">
+            <summary>
+            Card holder ID.
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.Pay.cmlResPayTxn">
+            <summary>
+            Respont Model ตัดจ่าย//PayTxn
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResPayTxn.rcTxnValue">
+            <summary>
+            ยอดทั้งหมด
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResPayTxn.rcCrdDeposit">
+            <summary>
+            เงินมัดจำบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResPayTxn.rcCrdDepositPdt">
+            <summary>
+            เงินมัดจำบัตรสินค้า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResPayTxn.rcTxnValueAvb">
+            <summary>
+            ยอดใช้ได้
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResPayTxn.rtCrdName">
+            <summary>
+            ชื่อบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResPayTxn.rtCtyName">
+            <summary>
+            ประเภทบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResPayTxn.rdCrdExpireDate">
+            <summary>
+            วันที่บัตรหมดอายุ
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResPayTxn.rnTxnID">
+            <summary>
+            ลำดับอ้างอิง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResPayTxn.rnTxnOffline">
+            <summary>
+            จำนวนครั้งที่ใช้งาน offline จาก บัตร/wristband
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResReturnDeposit.rcTxnValue">
+            <summary>
+            ยอดทั้งหมด
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResReturnDeposit.rcCtyDeposit">
+            <summary>
+            เงินมัดจำบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResReturnDeposit.rcTxnValueAvb">
+            <summary>
+            ยอดใช้ได้
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResReturnDeposit.rtCtyCode">
+            <summary>
+            ประเภทบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResReturnDeposit.rdCrdExpireDate">
+            <summary>
+            วันที่บัตรหมดอายุ
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResReturnDeposit.rtCrdName">
+            <summary>
+            ชื่อบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Pay.cmlResReturnDeposit.rcCrdDeposit">
+            <summary>
+            เงินมัดจำสินค้า
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.SpotCheck.cmlResSpotChk">
+            <summary>
+            Information class response spot Check
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.SpotCheck.cmlResSpotChk.rcTxnValue">
+            <summary>
+            ยอดทั้งหมด
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.SpotCheck.cmlResSpotChk.rcCrdDeposit">
+            <summary>
+            เงินมัดจำบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.SpotCheck.cmlResSpotChk.rcCrdDepositPdt">
+            <summary>
+            เงินมัดจำบัตรสินค้า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.SpotCheck.cmlResSpotChk.rcTxnValueAvb">
+            <summary>
+            ยอดใช้ได้
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.SpotCheck.cmlResSpotChk.rtCrdName">
+            <summary>
+            ชื่อบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.SpotCheck.cmlResSpotChk.rtCtyName">
+            <summary>
+            ประเภทบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.SpotCheck.cmlResSpotChk.rdCrdExpireDate">
+            <summary>
+            วันที่บัตรหมดอายุ
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.SpotCheck.cmlResSpotChk.rdCrdLastTopup">
+            <summary>
+            วันที่เติมเงินล่าสุด
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.SpotCheck.cmlResSpotChk.rnTxnOffline">
+            <summary>
+            จำนวนครั้งที่ใช้งาน offline จาก บัตร/wristband
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.SpotCheck.cmlResSpotChk.rnCtyExpiredType">
+            <summary>
+            ประเภทหมดอายุบัตร 
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.SpotCheck.cmlResSpotChk.rnCtyExpirePeriod">
+            <summary>
+            จำนวนอายุ บัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.SpotCheck.cmlResSpotChk.rtCrdHolderID">
+            <summary>
+            รหัสพนักงาน, หมายเลขผู้ถือบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.SpotCheck.cmlResSpotChk.rtCrdStaActive">
+            <summary>
+            สถานะบัตร 1: เคลื่อนไหว, 2: ไม่เคลื่อนไหว, 3: ยกเลิก
+            </summary>
+            
+            <remarks>
+            *[AnUBiS][][2019-02-21] - pandora.
+            </remarks>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResApvOpenCard.rtCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResApvOpenCard.rtBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResApvOpenCard.rtStatus">
+            <summary>
+            สถานะ 1 สำเร็จ , 2 ไม่สำเร็จ ,3 บัตรเบิกใช้งานแล้ว ,4 ไม่พบข้อมูลบัตร, 5 ประเภทบัตรไม่ใช่แบบปกติ
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResApvReturnCard.rtCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResApvReturnCard.rtBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResApvReturnCard.rtStatus">
+            <summary>
+            สถานะ 1  สำเร็จ , 2 ไม่สำเร็จ 3ไม่สามารถ ResetExpired ได้ 4 ไม่พบข้อมูลบัตร,5 ประเภทบัตรไม่ใช่แบบปกติ ,6 บัตรยังไม่ถูกเบิกใช้งาน
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.Topup.cmlResCancelTopup">
+            <summary>
+            Respont Model ยกเลิกการเติมเงิน//Cancel Topup
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResCancelTopup.rcTxnValue">
+            <summary>
+            ยอดทั้งหมด
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResCancelTopup.rcCrdDeposit">
+            <summary>
+            เงินมัดจำบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResCancelTopup.rcCrdDepositPdt">
+            <summary>
+            เงินมัดจำบัตรสินค้า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResCancelTopup.rcTxnValueAvb">
+            <summary>
+            ยอดใช้ได้
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResCancelTopup.rtCrdName">
+            <summary>
+            ชื่อบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResCancelTopup.rtCtyName">
+            <summary>
+            ประเภทบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResCancelTopup.rdCrdExpireDate">
+            <summary>
+            วันที่บัตรหมดอายุ
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResCancelTopup.rnTxnOffline">
+            <summary>
+            จำนวนครั้งที่ใช้งาน offline จาก บัตร/wristband
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResResetAvb.rcTxnValue">
+            <summary>
+            ยอดทั้งหมด
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResResetAvb.rcCrdDeposit">
+            <summary>
+            เงินมัดจำบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResResetAvb.rcCrdDepositPdt">
+            <summary>
+            เงินมัดจำสินค้า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResResetAvb.rcTxnValueRtn">
+            <summary>
+            ยอดที่คืนได้
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResResetAvb.rtCrdName">
+            <summary>
+            ชื่อบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResResetAvb.rtCtyName">
+            <summary>
+            ประเภทบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResResetAvb.rdCrdExpireDate">
+            <summary>
+            วันที่บัตรหมดอายุ
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.Topup.cmlResReturnTopupList">
+            <summary>
+            Information class model Response Return topup list
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResReturnTopupList.rtCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResReturnTopupList.rtBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResReturnTopupList.rtStatus">
+            <summary>
+            สถานะ 1  สำเร็จ, 2 ไม่สำเร็จ, 3.สถานนะบัตรยังไม่ถูกเปิดใช้งาน,4 ไม่พบข้อมูลบัตร ,5 ไม่สามารถ ResetExpired
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.Topup.cmlResTopup">
+            <summary>
+            Information Response Bese
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResTopup.rcTxnValue">
+            <summary>
+            ยอดทั้งหมด
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResTopup.rcCrdDeposit">
+            <summary>
+            เงินมัดจำบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResTopup.rcCrdDepositPdt">
+            <summary>
+            เงินมัดจำบัตรสินค้า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResTopup.rcTxnValueAvb">
+            <summary>
+            ยอดใช้ได้
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResTopup.rtCrdName">
+            <summary>
+            ชื่อบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResTopup.rtCtyName">
+            <summary>
+            ประเภทบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResTopup.rdCrdExpireDate">
+            <summary>
+            วันที่บัตรหมดอายุ
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResTopup.rnTxnID">
+            <summary>
+            ลำดับอ้างอิง
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResTopup.rnTxnOffline">
+            <summary>
+            จำนวนครั้งที่ใช้งาน offline จาก บัตร/wristband
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResTopupList.rtCrdCode">
+            <summary>
+            รหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResTopupList.rtBchCode">
+            <summary>
+            รหัสสาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Topup.cmlResTopupList.rtStatus">
+            <summary>
+            สถานะ  1  สำเร็จ, 2 ไม่สำเร็จ, 3ไม่สามารถ ResetExpired, 4 ไม่พบข้อมูลบัตร, 5.บัตรหมดอายุ, 6. บัตรยังไม่ถูกเบิกใช้งาน
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfCrd">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfCrd.rtFrmCrdCode">
+            <summary>
+            จากรหัสบบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfCrd.rtToCrdCode">
+            <summary>
+            ถึงรหัสบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfCrd.rtBchCode">
+            <summary>
+            สาขา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfCrd.rtStatus">
+            <summary>
+            สถานะ
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfIn.rcTxnValue">
+            <summary>
+            ยอดทั้งหมด
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfIn.rcCtyDeposit">
+            <summary>
+            เงินมัดจำบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfIn.rcTxnValueAvb">
+            <summary>
+            ยอดใช้ได้
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfIn.rtCtyCode">
+            <summary>
+            ประเภทบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfIn.rdCrdExpireDate">
+            <summary>
+            วันที่บัตรหมดอายุ
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfIn.rtCrdName">
+            <summary>
+            ชื่อบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfOut.rcTxnValue">
+            <summary>
+            ยอดทั้งหมด
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfOut.rcCtyDeposit">
+            <summary>
+            เงินมัดจำบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfOut.rcTxnValueAvb">
+            <summary>
+            ยอดใช้ได้
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfOut.rtCtyCode">
+            <summary>
+            ประเภทบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfOut.rdCrdExpireDate">
+            <summary>
+            วันที่บัตรหมดอายุ
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfOut.rtCrdName">
+            <summary>
+            ชื่อบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.WebService.Response.Tranfer.cmlResTnfOut.rcCrdDeposit">
+            <summary>
+            เงินมัดจำสินค้า
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.cmlResIsOnline">
+            <summary>
+            Information Is online ตรวจสอบ connection
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlResIsOnline.rtResult">
+            <summary>
+            Response result
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.cmlTCNMAgency">
+            <summary>
+            Information claass model TCNMAgency
+            </summary>
+        </member>
+        <member name="T:API2Wallet.Models.cmlTFNMCard">
+            <summary>
+            Information class TFNMCard,TFNMCard_L
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FTCrdCode">
+            <summary>
+            รหัส [รูป TCNMImgPerson]
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FTCrdName">
+            <summary>
+            ชื่อ, ชื่อผู้ถือบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FDCrdStartDate">
+            <summary>
+            วันที่เริ่มใช้บัตรได้
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FDCrdExpireDate">
+            <summary>
+            วันที่บัตรหมดอายุ
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FTCtyCode">
+            <summary>
+            รหัสประเภทบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FCCrdValue">
+            <summary>
+            ยอดทั้งหมด
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FDCrdLastTopup">
+            <summary>
+            วันที่เติมเงินล่าสุด
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FCCrdDeposit">
+            <summary>
+            ยอดมัดจำบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FCCrdDepositPdt">
+            <summary>
+            ยอดมัดจำสินค้า
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.cAvailable">
+            <summary>
+            ยอดใช้ได้
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FTCtyName">
+            <summary>
+            ชื่อ
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FNLngID">
+            <summary>
+            รหัสภาษา
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FNCrdTxnPrcAdj">
+            <summary>
+            จำนวน Transaction ที่ ประมวลผลตัดยอดแล้ว  (ได้จาก การประมวลผลตัดยอดที่ละรายการ)
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FTCrdHolderID">
+            <summary>
+            รหัสพนักงาน,หมายเลขผู้ถือบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FNCtyExpirePeriod">
+            <summary>
+            จำนวนอายุ บัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FNCtyExpiredType">
+            <summary>
+            ประเภทหมดอายุบัตร
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FTCtyStaAlwRet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FCCtyTopupAuto">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FTCrdStaShift">
+            <summary>
+            สถานะเบิกบัตร 1:ยังไม่ได้เบิก 2:เบิกแล้ว
+            </summary>
+        </member>
+        <member name="P:API2Wallet.Models.cmlTFNMCard.FTCrdStaLocate">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

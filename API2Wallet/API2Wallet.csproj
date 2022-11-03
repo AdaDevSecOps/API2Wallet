@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>d7f610c9-9ab5-4866-be01-84035593d519</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <AssemblyVersion>5.20002.3.01</AssemblyVersion>
+    <FileVersion>5.20002.3.01</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class\Log\**" />
+    <Compile Remove="Class\Public\**" />
+    <Compile Remove="EF\**" />
+    <Content Remove="Class\Log\**" />
+    <Content Remove="Class\Public\**" />
+    <Content Remove="EF\**" />
+    <EmbeddedResource Remove="Class\Log\**" />
+    <EmbeddedResource Remove="Class\Public\**" />
+    <EmbeddedResource Remove="EF\**" />
+    <None Remove="Class\Log\**" />
+    <None Remove="Class\Public\**" />
+    <None Remove="EF\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\ValuesController.cs" />
+    <Compile Remove="Controllers\WeatherForecastController.cs" />
+    <Compile Remove="WeatherForecast.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.90" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="log4net" Version="2.0.12" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.14" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="System.Runtime.Caching" Version="5.0.0" />
+  </ItemGroup>
+
+</Project>

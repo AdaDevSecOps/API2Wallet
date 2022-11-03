@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1401
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API2Wallet", "API2Wallet\API2Wallet.csproj", "{69C0AF22-044D-4D9D-8BFB-6582FF8CB8FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69C0AF22-044D-4D9D-8BFB-6582FF8CB8FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69C0AF22-044D-4D9D-8BFB-6582FF8CB8FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69C0AF22-044D-4D9D-8BFB-6582FF8CB8FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69C0AF22-044D-4D9D-8BFB-6582FF8CB8FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF3B2BCA-AB15-4B21-BC80-43088410C046}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://192.168.0.104:8080/tfs/adaposv5collections
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = API2Wallet\\API2Wallet.csproj
+		SccProjectName1 = API2Wallet
+		SccLocalPath1 = API2Wallet
+	EndGlobalSection
+EndGlobal
