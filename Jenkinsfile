@@ -48,7 +48,7 @@ pipeline
                 echo 'Remove Container...'
                 script
                 {
-                    bat 'docker rm -f api2wallet" '
+                    bat 'docker rm -f api2wallet '
                 }
             }
         }
@@ -59,7 +59,7 @@ pipeline
                 echo 'Run Container...'
                 script
                 {
-                    bat 'docker run -d -p 8999:80 --name api2wallet api2wallet:5.20002.3.01 '
+                    bat 'docker run -d --name api2wallet api2wallet:5.20002.3.01 '
                 }
             }
         }
